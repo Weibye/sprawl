@@ -6,19 +6,6 @@ use taffy::prelude::*;
 use taffy::randomizable::Randomizeable;
 use taffy::style::Style;
 
-<<<<<<< HEAD:benches/flexbox.rs
-mod helpers;
-use helpers::build_deep_tree;
-
-#[cfg(feature = "yoga_benchmark")]
-use helpers::yoga_helpers;
-#[cfg(feature = "yoga_benchmark")]
-use slotmap::SlotMap;
-#[cfg(feature = "yoga_benchmark")]
-use yoga_helpers::yg;
-
-=======
->>>>>>> parent of 4e1c35c5 (Implement head-to-head benchmarks against Yoga (#337)):benches/big_tree.rs
 /// Build a random leaf node
 fn build_random_leaf(taffy: &mut Taffy, rng: &mut ChaCha8Rng) -> Node {
     taffy.new_with_children(Style::random(rng), &[]).unwrap()
@@ -42,8 +29,6 @@ fn build_flat_hierarchy(taffy: &mut Taffy, total_node_count: u32) -> Node {
     taffy.new_with_children(Style { ..Default::default() }, children.as_slice()).unwrap()
 }
 
-<<<<<<< HEAD:benches/flexbox.rs
-=======
 /// A helper function to recursively construct a deep tree
 fn build_deep_tree(
     taffy: &mut Taffy,
@@ -68,7 +53,6 @@ fn build_deep_tree(
         .collect()
 }
 
->>>>>>> parent of 4e1c35c5 (Implement head-to-head benchmarks against Yoga (#337)):benches/big_tree.rs
 /// A tree with a higher depth for a more realistic scenario
 fn build_deep_hierarchy(taffy: &mut Taffy, node_count: u32, branching_factor: u32) -> Node {
     let mut rng = ChaCha8Rng::seed_from_u64(12345);
