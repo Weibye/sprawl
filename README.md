@@ -84,6 +84,7 @@ If you are interested in guide-level documentation on CSS layout, then we recomm
 
 ## Benchmarks (vs. [Yoga](https://github.com/facebook/yoga))
 
+<<<<<<< HEAD
 - Run on a 2021 MacBook Pro with M1 Pro processor using [criterion](https://github.com/bheisler/criterion.rs)
 - The benchmarks measure layout computation only. They do not measure tree creation.
 - Yoga benchmarks were run via the [yoga](https://github.com/bschwind/yoga-rs) crate (Rust bindings)
@@ -106,6 +107,23 @@ Note that the table below contains multiple different units (milliseconds vs. mi
 
 [ba27f9d]: https://github.com/facebook/yoga/commit/ba27f9d1ecfa7518019845b84b035d3d4a2a6658
 [71027a8]: https://github.com/DioxusLabs/taffy/commit/71027a8de03b343e120852b84bb7dca9fb4651c5
+=======
+- Run on a 2021 MacBook Pro with M1 Pro processor.
+- Taffy benchmarks are using criterion (10 iterations).
+- Yoga benchmarks run via it's node.js bindings (the `yoga-layout-prebuilt` npm package), they were run a few times manually and it was verified that variance in the numbers of each run was minimal. It should be noted that this is using an old version of Yoga.
+
+(note that the table below contains multiple different units (milliseconds vs. microseconds vs. nanoseconds))
+
+| Benchmark | Yoga | Taffy 0.2 |
+| --- | --- | --- |
+| yoga/10 nodes (1-level hierarchy) | 45.1670 µs | 1.9857 µs |
+| yoga/100 nodes (2-level hierarchy) | 134.1250 µs | 41.810 µs |
+| yoga/1_000 nodes (3-level hierarchy) | 1.2221 ms | 357.48 µs |
+| yoga/10_000 nodes (4-level hierarchy) | 13.8672 ms | 3.7310 ms |
+| yoga/100_000 nodes (5-level hierarchy) | 141.5307 ms | 39.682 ms |
+
+Most popular websites seem to have between 3,000 and 10,000 nodes (although they also require text layout, which neither yoga nor taffy implement).
+>>>>>>> parent of 4e1c35c5 (Implement head-to-head benchmarks against Yoga (#337))
 
 ## Contributions
 
