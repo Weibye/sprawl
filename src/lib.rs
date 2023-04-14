@@ -11,7 +11,7 @@
 #[macro_use]
 extern crate std;
 
-#[cfg(all(not(feature = "std"), feature = "alloc"))]
+#[cfg(all(feature = "alloc"))]
 extern crate alloc;
 
 #[cfg_attr(feature = "serde", macro_use)]
@@ -31,6 +31,9 @@ pub mod prelude;
 pub mod style;
 pub mod style_helpers;
 pub mod tree;
+
+#[cfg(feature = "html")]
+pub mod html;
 
 #[cfg(feature = "random")]
 pub mod randomizable;
